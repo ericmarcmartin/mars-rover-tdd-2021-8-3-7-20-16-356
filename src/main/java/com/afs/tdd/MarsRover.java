@@ -41,6 +41,11 @@ public class MarsRover {
 
             roverStatus = new RoverStatus(locationX, locationY, direction);
         }
+        if (direction.equals("W")) {
+            direction = "N";
+
+            roverStatus = new RoverStatus(locationX, locationY, direction);
+        }
     }
 
     private void turnLeft() {
