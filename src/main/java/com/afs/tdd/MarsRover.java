@@ -50,14 +50,27 @@ public class MarsRover {
 
         if (direction.equals("N")) {
             direction = "W";
+
+            roverStatus = new RoverStatus(locationX, locationY, direction);
+            return;
         }
         if (direction.equals("E")) {
             direction = "N";
+
+            roverStatus = new RoverStatus(locationX, locationY, direction);
+            return;
         }
         if (direction.equals("S")) {
             direction = "E";
+
+            roverStatus = new RoverStatus(locationX, locationY, direction);
+            return;
         }
-        roverStatus = new RoverStatus(locationX, locationY, direction);
+        if (direction.equals("W")) {
+            direction = "S";
+
+            roverStatus = new RoverStatus(locationX, locationY, direction);
+        }
     }
 
     private void move() {
