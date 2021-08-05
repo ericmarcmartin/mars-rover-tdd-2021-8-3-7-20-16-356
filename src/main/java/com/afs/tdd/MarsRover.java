@@ -33,9 +33,7 @@ public class MarsRover {
     }
 
     private void turnRight() {
-        locationX = roverStatus.getLocationX();
-        locationY = roverStatus.getLocationY();
-        direction = roverStatus.getDirection();
+        instantiateMarsRoverParameters();
 
         if (direction.equals("N")) {
             direction = "E";
@@ -62,9 +60,7 @@ public class MarsRover {
     }
 
     private void turnLeft() {
-        locationX = roverStatus.getLocationX();
-        locationY = roverStatus.getLocationY();
-        direction = roverStatus.getDirection();
+        instantiateMarsRoverParameters();
 
         if (direction.equals("N")) {
             direction = "W";
@@ -92,9 +88,7 @@ public class MarsRover {
     }
 
     private void move() {
-        locationX = roverStatus.getLocationX();
-        locationY = roverStatus.getLocationY();
-        direction = roverStatus.getDirection();
+        instantiateMarsRoverParameters();
 
         if (direction.equals("N")) {
             roverStatus = new RoverStatus(locationX, ++locationY, direction);
@@ -108,6 +102,12 @@ public class MarsRover {
         if (direction.equals("W")) {
             roverStatus = new RoverStatus(--locationX, locationY, direction);
         }
+    }
+
+    private void instantiateMarsRoverParameters() {
+        locationX = roverStatus.getLocationX();
+        locationY = roverStatus.getLocationY();
+        direction = roverStatus.getDirection();
     }
 
     public RoverStatus getRoverStatus() {
