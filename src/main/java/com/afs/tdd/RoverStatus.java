@@ -2,7 +2,7 @@ package com.afs.tdd;
 
 public class RoverStatus {
     private final int locationX;
-    private final int locationY;;
+    private final int locationY;
     private final String direction;
 
     public RoverStatus(int locationX, int locationY, String direction) {
