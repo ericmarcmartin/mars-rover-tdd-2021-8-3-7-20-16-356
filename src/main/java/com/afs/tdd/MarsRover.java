@@ -8,10 +8,10 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
-        if(command.equals("M")){
+        if (command.equals("M")) {
             move();
         }
-        if(command.equals("L")){
+        if (command.equals("L")) {
             turnLeft();
         }
     }
@@ -21,17 +21,17 @@ public class MarsRover {
         final int locationY = roverStatus.getLocationY();
         String direction = roverStatus.getDirection();
 
-        if(direction.equals("N")) {
+        if (direction.equals("N")) {
             direction = "W";
         }
-        roverStatus = new RoverStatus(locationX,locationY, direction);
+        roverStatus = new RoverStatus(locationX, locationY, direction);
     }
 
     private void move() {
         final int locationX = roverStatus.getLocationX();
         final int locationY = roverStatus.getLocationY();
         final String direction = roverStatus.getDirection();
-        roverStatus = new RoverStatus(locationX,locationY+1, direction);
+        roverStatus = new RoverStatus(locationX, locationY + 1, direction);
     }
 
     public RoverStatus getRoverStatus() {
