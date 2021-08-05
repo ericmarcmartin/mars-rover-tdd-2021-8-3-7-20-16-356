@@ -60,7 +60,7 @@ public class MarsRover {
             roverStatus = new RoverStatus(locationX, locationY - 1, direction);
         }
         if (direction.equals("E")) {
-            roverStatus = new RoverStatus(locationX+1, locationY, direction);
+            roverStatus = new RoverStatus(locationX + 1, locationY, direction);
         }
     }
 
