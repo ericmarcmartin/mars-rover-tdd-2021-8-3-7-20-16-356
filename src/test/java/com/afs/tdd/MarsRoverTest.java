@@ -57,7 +57,7 @@ class MarsRoverTest {
         RoverStatus expectedRoverStatus = new RoverStatus(0, -1, "S");
 
         //when
-        marsRover.executeCommand("R");
+        marsRover.executeCommand("M");
 
         //then
         assertEquals(expectedRoverStatus.getLocationX(), marsRover.getRoverStatus().getLocationX());
