@@ -72,14 +72,14 @@ public class MarsRover {
             roverStatus = new RoverStatus(locationX, locationY, direction);
             return;
         }
-        if (direction.equals("E")) {
-            direction = "N";
+        if (direction.equals("S")) {
+            direction = "E";
 
             roverStatus = new RoverStatus(locationX, locationY, direction);
             return;
         }
-        if (direction.equals("S")) {
-            direction = "E";
+        if (direction.equals("E")) {
+            direction = "N";
 
             roverStatus = new RoverStatus(locationX, locationY, direction);
             return;
@@ -96,11 +96,11 @@ public class MarsRover {
         locationY = roverStatus.getLocationY();
         direction = roverStatus.getDirection();
 
-        if (direction.equals("S")) {
-            roverStatus = new RoverStatus(locationX, --locationY, direction);
-        }
         if (direction.equals("N")) {
             roverStatus = new RoverStatus(locationX, ++locationY, direction);
+        }
+        if (direction.equals("S")) {
+            roverStatus = new RoverStatus(locationX, --locationY, direction);
         }
         if (direction.equals("E")) {
             roverStatus = new RoverStatus(++locationX, locationY, direction);
