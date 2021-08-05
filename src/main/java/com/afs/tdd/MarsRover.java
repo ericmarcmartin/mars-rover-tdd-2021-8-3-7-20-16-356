@@ -14,8 +14,10 @@ public class MarsRover {
     }
 
     private void move() {
+        final int locationX = roverStatus.getLocationX();
         final int locationY = roverStatus.getLocationY();
-        roverStatus = new RoverStatus(0,locationY+1, "");
+        final String direction = roverStatus.getDirection();
+        roverStatus = new RoverStatus(locationX,locationY+1, direction);
     }
 
     public RoverStatus getRoverStatus() {
