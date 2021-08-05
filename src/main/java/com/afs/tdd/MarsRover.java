@@ -1,6 +1,9 @@
 package com.afs.tdd;
 
 public class MarsRover {
+    private int locationX;
+    private int locationY;
+    private String direction;
     private RoverStatus roverStatus;
 
     public MarsRover(RoverStatus roverStatus) {
@@ -8,6 +11,9 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
+        if (command.length() > 1) {
+            executeCommands(command);
+        }
         if (command.equals("M")) {
             move();
         }
@@ -19,10 +25,17 @@ public class MarsRover {
         }
     }
 
+    private void executeCommands(String command) {
+        char[] commandArray = command.toCharArray();
+        for(char commandChar : commandArray){
+            executeCommand(String.valueOf(commandChar));
+        }
+    }
+
     private void turnRight() {
-        final int locationX = roverStatus.getLocationX();
-        final int locationY = roverStatus.getLocationY();
-        String direction = roverStatus.getDirection();
+        locationX = roverStatus.getLocationX();
+        locationY = roverStatus.getLocationY();
+        direction = roverStatus.getDirection();
 
         if (direction.equals("N")) {
             direction = "E";
@@ -49,9 +62,9 @@ public class MarsRover {
     }
 
     private void turnLeft() {
-        final int locationX = roverStatus.getLocationX();
-        final int locationY = roverStatus.getLocationY();
-        String direction = roverStatus.getDirection();
+        locationX = roverStatus.getLocationX();
+        locationY = roverStatus.getLocationY();
+        direction = roverStatus.getDirection();
 
         if (direction.equals("N")) {
             direction = "W";
@@ -79,19 +92,21 @@ public class MarsRover {
     }
 
     private void move() {
-        final int locationX = roverStatus.getLocationX();
-        final int locationY = roverStatus.getLocationY();
-        final String direction = roverStatus.getDirection();
-        roverStatus = new RoverStatus(locationX, locationY + 1, direction);
+        locationX = roverStatus.getLocationX();
+        locationY = roverStatus.getLocationY();
+        direction = roverStatus.getDirection();
 
         if (direction.equals("S")) {
-            roverStatus = new RoverStatus(locationX, locationY - 1, direction);
+            roverStatus = new RoverStatus(locationX, --locationY, direction);
+        }
+        if (direction.equals("N")) {
+            roverStatus = new RoverStatus(locationX, ++locationY, direction);
         }
         if (direction.equals("E")) {
-            roverStatus = new RoverStatus(locationX + 1, locationY, direction);
+            roverStatus = new RoverStatus(++locationX, locationY, direction);
         }
         if (direction.equals("W")) {
-            roverStatus = new RoverStatus(locationX - 1, locationY, direction);
+            roverStatus = new RoverStatus(--locationX, locationY, direction);
         }
     }
 
